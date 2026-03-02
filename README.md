@@ -17,6 +17,17 @@
 | **Data Export** | Export result grids to CSV or JSON. |
 | **SQL Formatter** | Format T-SQL with configurable rules (keyword casing, indentation, newlines). |
 
+#### Visuals
+
+*Query History*
+![SqlPulse History Window](artifacts/docspict/HistoryWindow_Main.png)
+
+*Result Grid Filter*
+![Result Grid Filter](artifacts/docspict/ResultGrid_Filter.png)
+
+*Data Export*
+![Data Export](artifacts/docspict/ResultGrid_ExportMenu.png)
+
 ### Pro
 
 | Feature | Description |
@@ -33,6 +44,49 @@
 | **Encrypted History** | AES-256 encrypted history storage with passphrase protection. |
 | **SQL Server History Backend** | Store query history in a shared SQL Server table for team-wide access. |
 
+#### Visuals
+
+*Session Management*
+![Session Management](artifacts/docspict/HistoryWindow_Sessions.png)
+
+*Object Explorer Database and Job Grouping*
+![DB Grouping](artifacts/docspict/ObjectExplorer_DBGrouping.png)
+![Job Grouping](artifacts/docspict/ObjectExplorer_JobGrouping.png)
+
+*Object Search*
+![Object Search Results](artifacts/docspict/ObjectSearch_Results.png)
+![Object Search Definition](artifacts/docspict/ObjectSearch_Definition.png)
+
+*SQL Code Inspector*
+![SQL Code Inspector](artifacts/docspict/SQLCodeInspector_Window.png)
+
+## Integration in SSMS
+
+SqlPulse integrates seamlessly into SSMS via the Tools menu and context menus.
+
+*Tools Menu*
+![SSMS Tools Menu](artifacts/docspict/SSMS_ToolsMenu.png)
+![SSMS Tools Menu Expanded](artifacts/docspict/SSMS_ToolsMenu_Expanded.png)
+
+*Query Editor Context Menu*
+![Query Editor Context Menu](artifacts/docspict/QueryEditor_ContextMenu.png)
+![Query Editor Context Menu Expanded](artifacts/docspict/QueryEditor_ContextMenu_Expanded.png)
+
+## Settings
+
+SqlPulse is highly configurable to suit your workflow.
+
+![General Settings](artifacts/docspict/Settings_General.png)
+![Storage Settings](artifacts/docspict/Settings_Storage.png)
+![History Settings](artifacts/docspict/Settings_History.png)
+![Session Settings](artifacts/docspict/Settings_Sessions.png)
+![DB Groups Settings](artifacts/docspict/Settings_DBGroups.png)
+![Job Groups Settings](artifacts/docspict/Settings_JobGroups.png)
+![Shared Settings](artifacts/docspict/Settings_Shared.png)
+![Plan Analyzer Settings](artifacts/docspict/Settings_PlanAnalyzer.png)
+![SQL Formatter Settings](artifacts/docspict/Settings_SQLFormatter.png)
+![Advanced Settings](artifacts/docspict/Settings_Advanced.png)
+
 ## Installation
 
 ### Setup Installer (Recommended)
@@ -42,9 +96,15 @@
 3. Restart SSMS
 4. The **SqlPulse** menu appears under **Tools**
 
+![SqlPulse Installer Start](artifacts/docspict/Installer_Start.png)
+![SqlPulse Installer Running](artifacts/docspict/Installer_Running.png)
+![SqlPulse Installer Finished](artifacts/docspict/Installer_Finished.png)
+
 > The installer automatically detects all SSMS versions on your machine and installs the extension for each.
 
 ## Quick Start
+
+![SqlPulse Menu](artifacts/docspict/Screenshot%202026-03-02%20165309.png)
 
 | Action | How |
 |--------|-----|
