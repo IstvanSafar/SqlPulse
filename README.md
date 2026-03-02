@@ -14,7 +14,7 @@
 |---------|-------------|
 | **Query History** | Automatically captures every executed query. Search, filter by date, and replay with one click. |
 | **Result Grid Filter** | Live row filtering directly in the SSMS result grid. Type to search across all columns instantly. |
-| **Data Export** | Export result grids to CSV or JSON. |
+| **Data Export** | Export result grids to XLSX, CSV or JSON. |
 | **SQL Formatter** | Format T-SQL with configurable rules (keyword casing, indentation, newlines). |
 
 #### Visuals
