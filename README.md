@@ -19,14 +19,15 @@
 
 #### Visuals
 
-*Query History*
-![SqlPulse History Window](docspict/HistoryWindow_Main.png)
-
 *Result Grid Filter*
 ![Result Grid Filter](docspict/ResultGrid_Filter.png)
 
 *Data Export*
 ![Data Export](docspict/ResultGrid_ExportMenu.png)
+
+*Settings*
+
+![SqlPulse History Window](docspict/HistoryWindow_Main.png)
 
 ### Pro
 
