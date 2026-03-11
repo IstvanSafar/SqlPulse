@@ -20,7 +20,7 @@
 #### Visuals
 
 *Result Grid Filter*
-![Result Grid Filter](docspict/ResultGrid_Filter.png)
+![Result Grid Filter](docspict/Animation.webp)
 
 *Data Export*
 ![Data Export](docspict/ResultGrid_ExportMenu.png)
