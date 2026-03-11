@@ -30,7 +30,6 @@
 | Feature | Description |
 |---------|-------------|
 | **SQL Code Inspector** | 50+ static analysis rules across 4 categories: modernization, performance, best practices, and security. AST-based detection using ScriptDom. |
-(docspict/Animation.webpÖ
 | **Execution Plan Analyzer** | Visual plan tree, side-by-side plan comparison, table usage summary, and operator search within complex plans. |
 | **Advanced Grid Filter** | Multi-condition filters with AND/OR logic and 9 operators (Contains, Regex, Equals, Starts With, etc.). |
 | **Session Management** | Save and restore entire tab groups with connection contexts. Resume complex tasks exactly where you left off. |
@@ -43,6 +42,8 @@
 | **SQL Server History Backend** | Store query history in a shared SQL Server table for team-wide access. |
 
 #### Visuals
+*Grid Filter*
+![Grid Filter](docspict/Animation.webp)
 
 *Session Management*
 ![Session Management](docspict/HistoryWindow_Sessions.png)
