@@ -244,16 +244,6 @@ Activate via: **Tools** > **SqlPulse** > **Activate License**
 
 [GitHub Releases](https://github.com/IstvanSafar/SqlPulse/releases)
 
-## Privacy & Usage Analytics
-
-SqlPulse can optionally collect **anonymous feature usage statistics** to help prioritize development.
-
-- **Opt-in only** � disabled by default. Enable via **Settings > Advanced > Track feature usage**
-- **Fully local** � data is stored in `%LOCALAPPDATA%\SqlPulseTool\usage.db` only
-- **No upload** � nothing is sent anywhere without your explicit action
-- **No PII** � only feature names and usage counts are recorded (e.g. `filter: 12`, `export_csv: 5`)
-- **No SQL, no connections, no personal data** � ever
-
 
 ## Security & Privacy
 
