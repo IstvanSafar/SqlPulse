@@ -10,6 +10,25 @@ This document describes SqlPulse's security model, what data leaves your machine
 
 Query history, filter state, settings, and all other data is stored locally in `%LOCALAPPDATA%\SqlPulseTool\`. Nothing is uploaded anywhere.
 
+---
+
+## Credential storage policy
+
+**SqlPulse does not store SQL Server passwords.**
+
+This is a deliberate design decision, not a limitation:
+
+- SQL Server passwords are not written to `settings.json` or any other file
+- The **Quick Connect** feature stores server name, database, and username (for display only) — never the password
+- Authentication is handled by SSMS itself when you open a new query window — SqlPulse does not intercept or cache credentials
+- **Windows Authentication (Integrated Security)** is recommended and fully supported with no credentials to manage
+
+If you use SQL Server Authentication, your login name is shown in the Quick Connect list as a reminder, but no password is stored or transmitted.
+
+> **Why not store passwords with DPAPI?** DPAPI (Windows Data Protection API) encrypts data so only the current Windows user can decrypt it on the same machine. While this is a common pattern, it still results in credential material on disk — accessible if the Windows account is compromised, accidentally committed to version control, or included in a backup. SSMS itself uses Windows Credential Manager rather than file-based credential storage. SqlPulse follows the same principle: **no passwords on disk**.
+
+---
+
 **During Pro license activation: exactly three values are sent:**
 
 | Field | Value | Notes |
