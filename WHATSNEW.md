@@ -1,5 +1,20 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.292 - 2026-04-03**
+
+---
+
+### Fixed
+- **Result Grid: Horizontal/vertical scrollbar broken** — the extension was installing a transparent storage proxy layer on every result grid automatically (to support conditional formatting), which intercepted mouse events and broke scrollbar interaction. The proxy is now only installed on demand when a filter is actively applied. This restores normal grid scrolling while preserving all filter functionality.
+- **DB/Job Groups: Unnecessary startup scan** — Object Explorer injector now skips initialization if no DB/Job groups are configured, reducing startup overhead and preventing UI focus interference.
+
+### Added
+- **DB/Job Groups: Enable/disable toggles** — added "Enable DB Groups" and "Enable Job Groups" checkboxes on the respective settings pages (Settings → DB Groups / Job Groups). Users can now disable the feature without deleting their group definitions.
+
+---
+
+---
+
 **v0.1.288 - 2026-04-03**
 
 ---
