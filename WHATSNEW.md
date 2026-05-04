@@ -1,5 +1,29 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.294 - 2026-05-04**
+
+---
+
+### Added
+- **Quick Connect: Connection search** — a filter box at the top of the Quick Connect popup lets you search Preferred and Recent connections by label, server, or database name as you type. Focus lands on the search box automatically when the popup opens.
+- **Quick Connect: Save current connection** — a "Save current" link in the popup header saves the active editor's server and database to Preferred Connections with a custom label. Type a name (e.g. the company name from a support ticket) and press Enter. The link is hidden when no editor connection is detected.
+- **Connections: CSV import** — import bulk connections from a CSV file via **Settings → Connections → Import CSV**. Columns: `Label, Server, Database` (header row auto-detected and skipped). Quoted fields and commas inside labels are supported.
+
+---
+
+---
+
+**v0.1.294 - 2026-05-04**
+
+---
+
+### Added
+- **Quick Connect: Connection search** — a filter box at the top of the Quick Connect popup lets you search Preferred and Recent connections by label, server, or database name as you type. Focus lands on the search box automatically when the popup opens.
+- **Quick Connect: Save current connection** — a "Save current" link in the popup header saves the active editor's server and database to Preferred Connections with a custom label. Type a name (e.g. the company name from a support ticket) and press Enter. The link is hidden when no editor connection is detected.
+- **Connections: CSV import** — import bulk connections from a CSV file via **Settings → Connections → Import CSV**. Columns: `Label, Server, Database` (header row auto-detected and skipped). Quoted fields and commas inside labels are supported.
+
+---
+
 **v0.1.292 - 2026-04-03**
 
 ---

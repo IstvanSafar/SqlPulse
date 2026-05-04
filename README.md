@@ -61,7 +61,7 @@
 | **Advanced Grid Filter** | Multi-condition filters with AND/OR logic and 9 operators (Contains, Regex, Equals, Starts With, etc.). |
 | **Session Management** | Save and restore entire tab groups with connection contexts. Resume complex tasks exactly where you left off. |
 | **Object Search** | Fast full-text search across all database objects (tables, views, procedures, functions) with cached metadata. |
-| **Quick Connect** | Floating dropdown showing your preferred and recent connections. Click a connection to open a new query window, or hover and click **Replace** to change the connection on the active editor tab without opening a new window. Supports both Windows Auth and SQL Server Auth connections. Click **+ Add** in the header to add a new connection without leaving the dropdown. |
+| **Quick Connect** | Floating dropdown showing your preferred and recent connections. Type in the built-in search box to instantly filter by label, server, or database name. Click a connection to open a new query window, or hover and click **Replace** to change the connection on the active editor tab. Click **Save current** to save the active editor's connection with a custom label — ideal for bookmarking a client database found from a support ticket. Manage and bulk-import connections via **Settings → Connections** (CSV import supported). |
 | **Tab Management** | Auto-rename and color-code query tabs based on environment. Red for Production, Green for Dev - prevent accidental executions. |
 | **Grid Conditional Formatting** | Color result grid rows or cells based on column values — e.g. highlight ERROR rows in red, WARNING in orange. Define multiple rules with 13 operators (Contains, Regex, >, <, Is Empty, etc.). Built-in **zebra striping** (alternating row colors). Condition rules always override the zebra base layer. Applies instantly after each query. |
 | **DB & Job Grouping** | Organize databases and SQL Agent jobs into colored groups in Object Explorer. |
@@ -156,6 +156,9 @@ The settings dialog has a **built-in search box** at the top of the navigation p
 | Search Objects | **Tools** > **SqlPulse** > **Object Search** |
 | Live SQL Profiler | **Tools** > **SqlPulse** > **SQL Profiler** |
 | Quick Connect | **Tools** > **SqlPulse** > **Quick Connect** (also toolbar button) |
+| Search connections | Open Quick Connect — type in the search box at the top |
+| Save active connection | Open Quick Connect → click **Save current** → type a label → Enter |
+| Bulk import connections | **Settings → Connections → Import CSV...** |
 | Add new connection | **Settings → Connections → Add** or **Profiler → +** button (Free); **Quick Connect → + Add** (Pro) |
 | Keyboard Shortcuts | **Tools** > **SqlPulse** > **Settings** > **Keyboard Shortcuts** |
 | Connection Strip | Automatic — configure in **Settings → Connections** |
@@ -308,8 +311,32 @@ Manage connections via **Tools → SqlPulse → Settings → Connections**.
 | **Settings** | **Tools → SqlPulse → Settings → Connections → Add** | Free + Pro |
 | **SQL Profiler toolbar** | Click the **+** button next to the server dropdown | Free + Pro |
 | **Quick Connect popup** | Click **+ Add** in the popup header | Pro only |
+| **Quick Connect: Save current** | Click **Save current** in the popup header, type a label, press Enter | Pro only |
 
 All entry points open the Connections settings page with a new connection ready to fill in.
+
+### Saving the active connection (quick bookmark)
+
+When you receive a support ticket for an unfamiliar database, open Quick Connect and click **Save current**. A small form appears showing the active server and database — type a descriptive label (e.g. the company name) and press Enter. The connection is added to your Preferred list immediately.
+
+Next time you need it, open Quick Connect and type part of the label to find it instantly in the search box.
+
+### Bulk import from CSV
+
+If you maintain a spreadsheet of customer databases, import them all at once:
+
+1. Open **Tools → SqlPulse → Settings → Connections → Import CSV...**
+2. Select your `.csv` file
+
+CSV format (header row optional, auto-detected):
+
+```
+Label,Server,Database
+Acme Corp,PROD-SQL-03,CUST_PRD_RG7_2019
+Big Client,PROD-SQL-01,BIG_PROD_DB
+```
+
+Quoted fields are supported (`"Acme, Corp"` works). Rows with an empty Server column are skipped.
 
 ### How the Profiler uses saved connections
 
