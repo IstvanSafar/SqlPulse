@@ -1,5 +1,28 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.297 - 2026-05-11**
+
+---
+
+### Fixed
+- **Sessions: Manual save counts phantom tabs** — clicking "Save Session" with zero open tabs saved a session with previously-closed tab entries (e.g. 2 tabs) instead of zero. The stale `_tabCache` merge step was removed; `EnumerateAllOpenTabs` is the authoritative source and already covers all live frames.
+- **Sessions: No feedback when saving with no open tabs** — "Save Session" now shows an informational dialog ("No open SQL tabs to save.") instead of silently doing nothing.
+
+---
+
+---
+
+**v0.1.295 - 2026-05-09**
+
+---
+
+### Fixed
+- **Sessions: Incorrect tab count on manual save** — saving a session could save the wrong number of tabs (e.g. 2 or 13 when 8 were open). The save logic incorrectly included tabs that had already been closed during the session, and relied on an event-driven cache that only covered tabs the user had explicitly clicked on. The fix enumerates all currently open editor frames directly at save time, which is both accurate and independent of prior user interaction.
+
+---
+
+---
+
 **v0.1.294 - 2026-05-04**
 
 ---
