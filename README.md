@@ -8,7 +8,9 @@
 
 **SqlPulse** is a productivity extension for SQL Server Management Studio that adds query history, result grid filtering, SQL code analysis, execution plan comparison, live SQL profiling, workspace management, and safety features to SSMS.
 
-**[What's New](WHATSNEW.md)** -- SQL Profiler, Quick Connect, Connection Strip, Conditional Formatting, Transaction Guard, Blocking Tree, Dependency view, and more.
+### What's New — v0.1.298 (2026-07-14)
+
+- **Installer: install for all users by default** — fixes SqlPulse not showing up in SSMS when the installer was run elevated under a different admin account. See [full changelog](WHATSNEW.md) for older versions.
 
 ## Features
 
