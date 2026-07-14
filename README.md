@@ -132,7 +132,7 @@ The settings dialog has a **built-in search box** at the top of the navigation p
 ### Setup Installer (Recommended)
 
 1. Download the latest **SqlPulseInstaller.exe** from [Releases](https://github.com/IstvanSafar/SqlPulse/releases)
-2. Run the installer
+2. Run the installer (requires administrator rights)
 3. Restart SSMS
 4. The **SqlPulse** menu appears under **Tools**
 
@@ -141,6 +141,8 @@ The settings dialog has a **built-in search box** at the top of the navigation p
 ![SqlPulse Installer Finished](docspict/Installer_Finished.png)
 
 > The installer automatically detects all SSMS versions on your machine and installs the extension for each.
+
+> **Install for all users:** enabled by default. In corporate environments where day-to-day accounts have no admin rights, the installer is typically run elevated under a separate admin account — with this option on, SqlPulse installs into the shared per-machine location so it shows up in **every** Windows user's SSMS, not just the admin account that ran the installer. Uncheck it to install for the current user only.
 
 ## Quick Start
 

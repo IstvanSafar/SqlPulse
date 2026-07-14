@@ -1,5 +1,16 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.298 - 2026-07-14**
+
+---
+
+### Fixed
+- **Installer: extension not visible after elevated install as a different admin account** — in environments where the day-to-day user has no admin rights, installing SqlPulse required elevating with a separate admin account. For modern SSMS (21/22), the installer used to call `VSIXInstaller.exe` without `/admin`, so the extension was registered per-user under the elevated account's own profile — invisible to the original user. The installer now defaults to an "Install for all users" mode (`/admin /force`), registering the extension in the shared per-machine Extensions folder instead, matching how legacy SSMS (18/19/20) already installed. A checkbox lets you opt back into the old per-user behavior if needed. Upgrading from an older per-user install now also cleans up the stale per-user copy so it doesn't linger alongside the new all-users one.
+
+---
+
+---
+
 **v0.1.297 - 2026-05-11**
 
 ---
