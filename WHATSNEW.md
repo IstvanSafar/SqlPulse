@@ -1,5 +1,14 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.299 - 2026-07-30**
+
+---
+
+### Fixed
+- **Conditional Formatting: not applied on "Edit Top N Rows" grids** — SSMS's editable "Edit Top N Rows" / "Edit Data" grid (used for tables and views alike) is a different control than the read-only query results grid, so conditional formatting rules were silently never applied there — only the query results grid was ever hooked. Conditional formatting now works on both.
+
+---
+
 **v0.1.298 - 2026-07-14**
 
 ---
