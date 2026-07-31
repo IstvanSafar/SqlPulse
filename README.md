@@ -8,9 +8,9 @@
 
 **SqlPulse** is a productivity extension for SQL Server Management Studio that adds query history, result grid filtering, SQL code analysis, execution plan comparison, live SQL profiling, workspace management, and safety features to SSMS.
 
-### What's New — v0.1.299 (2026-07-30)
+### What's New — v0.1.300 (2026-07-31)
 
-- **Conditional Formatting: now works on "Edit Top N Rows" grids** — the editable data grid (used for tables and views alike) is a different control than the read-only query results grid, so formatting rules were previously skipped there. See [full changelog](WHATSNEW.md) for older versions.
+- **Conditional Formatting: every matching cell in a row is now coloured** — a rule with no column filter (e.g. "any column equals NULL") previously only coloured the first matching cell per row. Invalid rule colors also no longer fall back to unreadable pink text. See [full changelog](WHATSNEW.md) for older versions.
 
 ## Features
 

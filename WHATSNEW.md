@@ -1,5 +1,15 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.300 - 2026-07-31**
+
+---
+
+### Fixed
+- **Conditional Formatting: only the first matching cell per row was coloured** — a rule with no column filter (e.g. "any column equals NULL") only ever coloured the first matching cell in each row; every other cell satisfying the same condition kept its default appearance. Every matching cell in a row is now coloured independently.
+- **Conditional Formatting: invalid colors rendered as hard-to-read pink text** — a bad or unparseable rule color silently fell back to a hardcoded pink instead of leaving the cell's default appearance alone.
+
+---
+
 **v0.1.299 - 2026-07-30**
 
 ---
