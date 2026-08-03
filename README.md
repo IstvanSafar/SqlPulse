@@ -8,9 +8,9 @@
 
 **SqlPulse** is a productivity extension for SQL Server Management Studio that adds query history, result grid filtering, SQL code analysis, execution plan comparison, live SQL profiling, workspace management, and safety features to SSMS.
 
-### What's New — v0.1.300 (2026-07-31)
+### What's New — v0.1.304 (2026-08-03)
 
-- **Conditional Formatting: every matching cell in a row is now coloured** — a rule with no column filter (e.g. "any column equals NULL") previously only coloured the first matching cell per row. Invalid rule colors also no longer fall back to unreadable pink text. See [full changelog](WHATSNEW.md) for older versions.
+- **Conditional Formatting: AND/OR compound conditions** — rules can now combine multiple conditions (e.g. "any column is NULL" OR "City contains Budapest"), evaluated left-to-right. Older single-condition rules keep working unchanged. Also fixes a bug where a condition targeting a specific column could colour the whole row instead of just that column's cell in "Matching Cell Only" mode. See [full changelog](WHATSNEW.md) for older versions.
 
 ## Features
 
@@ -65,7 +65,7 @@
 | **Object Search** | Fast full-text search across all database objects (tables, views, procedures, functions) with cached metadata. |
 | **Quick Connect** | Floating dropdown showing your preferred and recent connections. Type in the built-in search box to instantly filter by label, server, or database name. Click a connection to open a new query window, or hover and click **Replace** to change the connection on the active editor tab. Click **Save current** to save the active editor's connection with a custom label — ideal for bookmarking a client database found from a support ticket. Manage and bulk-import connections via **Settings → Connections** (CSV import supported). |
 | **Tab Management** | Auto-rename and color-code query tabs based on environment. Red for Production, Green for Dev - prevent accidental executions. |
-| **Grid Conditional Formatting** | Color result grid rows or cells based on column values — e.g. highlight ERROR rows in red, WARNING in orange. Define multiple rules with 13 operators (Contains, Regex, >, <, Is Empty, etc.). Built-in **zebra striping** (alternating row colors). Condition rules always override the zebra base layer. Applies instantly after each query. |
+| **Grid Conditional Formatting** | Color result grid rows or cells based on column values — e.g. highlight ERROR rows in red, WARNING in orange. Define multiple rules with 13 operators (Contains, Regex, >, <, Is Empty, etc.), combinable with AND/OR into compound conditions. Built-in **zebra striping** (alternating row colors). Condition rules always override the zebra base layer. Applies instantly after each query. |
 | **DB & Job Grouping** | Organize databases and SQL Agent jobs into colored groups in Object Explorer. |
 | **Query Playbooks** | Define multi-step query workflows with connection overrides. Execute, track results, and export. |
 | **Excel Export** | Export result grids to XLSX (OpenXML). |

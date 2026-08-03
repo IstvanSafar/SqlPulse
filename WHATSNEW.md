@@ -1,5 +1,17 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.304 - 2026-08-03**
+
+---
+
+### Added
+- **Conditional Formatting: AND/OR compound conditions** — rules can now combine multiple conditions (e.g. "any column is NULL" OR "City contains Budapest"), folded left-to-right the same way the Grid Filter feature already does. Older single-condition rules keep working unchanged; the shared fold/match logic now lives in one helper (`ConditionEvaluator`) used by both features instead of two separate implementations.
+
+### Fixed
+- **Conditional Formatting: a named-column condition coloured the whole row in "Matching Cell Only" mode** — a condition targeting a specific column (e.g. "City contains Budapest") acted as a row-wide gate when combined via OR, colouring every cell in a matching row instead of just that column's own cell. A named-column condition now only ever matches while painting that column's own cell.
+
+---
+
 **v0.1.300 - 2026-07-31**
 
 ---
