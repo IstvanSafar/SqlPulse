@@ -1,4 +1,4 @@
-# Privacy Policy
+﻿# Privacy Policy
 
 **Last updated: March 2026**
 
@@ -13,7 +13,7 @@ All data SqlPulse creates stays on your machine under `%LOCALAPPDATA%\SqlPulseTo
 | File | Contents | Sensitive? |
 |------|----------|------------|
 | `history.jsonl` | Query text, timestamp, connection info | Yes — contains your SQL queries |
-| `settings.json` | Extension configuration and license token | Low — no credentials |
+| `settings.json` | Extension configuration | Low — no credentials |
 | `extension.log` | Diagnostic log with `[Tag]` prefixes | Low — no query content by default |
 | `db-groups.json` | Database group definitions | Low |
 | `job-groups.json` | Job group definitions | Low |
@@ -24,21 +24,17 @@ All data SqlPulse creates stays on your machine under `%LOCALAPPDATA%\SqlPulseTo
 
 ## Data sent over the network
 
-### License activation (Pro only)
+### License activation
 
-A one-time HTTPS POST is sent to the SqlPulse activation server containing:
+**None.** SqlPulse is free - there is no licence key, no account and no activation step, so no machine
+fingerprint or licence data is ever created or sent. Builds up to 0.1.298 carried an unused activation
+code path for a planned Pro tier; the server was never deployed, and as of 0.1.299 the code is gone.
 
-- Your **license key** (the key you purchased from LemonSqueezy)
-- A **machine fingerprint**: `SHA-256(UUID + CPU ID + Disk Serial)`, truncated to 32 hex characters. This is a one-way hash — the raw hardware identifiers are never sent.
-- An **isVm** flag (true/false)
+### Update check
 
-Nothing else is sent. No username, no hostname, no IP address is stored. After activation the signed token is stored locally and verified offline on every startup.
-
-> **Note:** The activation server is not yet deployed. Pro license activation is not live in the current release.
-
-### Renewal
-
-When a token approaches expiry (within 14 days), the extension sends the existing token and fingerprint to the renewal endpoint to obtain a fresh token. Same data as activation — no additional fields.
+The only outbound request the extension can make: an optional check against the public GitHub releases
+API (`api.github.com`) to see whether a newer version exists. It sends no identifying information beyond
+what any HTTPS request necessarily reveals.
 
 ### Telemetry / usage analytics
 
@@ -46,7 +42,7 @@ When a token approaches expiry (within 14 days), the extension sends the existin
 
 ---
 
-## SQL Server History Backend (Pro)
+## SQL Server History Backend
 
 If you configure the SQL Server History Backend, query history is written to a SQL Server table **you specify**. SqlPulse connects using the connection string you provide — it does not control or have access to that server independently.
 

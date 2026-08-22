@@ -1,5 +1,26 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.305 - 2026-08-22**
+
+---
+
+### Changed
+- **SqlPulse is now permanently free - every feature, no licence key, no activation.** The Free/Pro
+  split is gone. Advanced grid filtering (multiple conditions and operators), XLSX export without a
+  row cap, unlimited query history with configurable retention, the SQLite and SQL Server history
+  backends and history file encryption are now available to everyone, with nothing to enter or buy.
+- The extension no longer contacts any server for licensing. It never sent telemetry; now there is no
+  activation call either, so it runs fully offline.
+
+### Fixed
+- **Please update if you are on 0.1.304 or older.** The free period was time-limited in code and
+  would have expired on **2026-09-01**: on that date an older build silently drops to the limited
+  tier - grid filter down to a single "Contains" condition, XLSX capped at 1,000 rows, history
+  trimmed to 30 days - and there is no way to upgrade it, because no licence was ever sold. Updating
+  to 0.1.299 removes the deadline entirely.
+
+---
+
 **v0.1.304 - 2026-08-03**
 
 ---

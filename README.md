@@ -1,4 +1,4 @@
-# SqlPulse - Productivity Extension for SSMS
+﻿# SqlPulse - Productivity Extension for SSMS
 
 [![SSMS 18-22](https://img.shields.io/badge/SSMS-18--22-blue.svg)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
 [![Windows](https://img.shields.io/badge/Windows-10%2F11-0078D6.svg)]()
@@ -8,13 +8,13 @@
 
 **SqlPulse** is a productivity extension for SQL Server Management Studio that adds query history, result grid filtering, SQL code analysis, execution plan comparison, live SQL profiling, workspace management, and safety features to SSMS.
 
-### What's New — v0.1.304 (2026-08-03)
+### What's New — v0.1.305 (2026-08-22)
 
-- **Conditional Formatting: AND/OR compound conditions** — rules can now combine multiple conditions (e.g. "any column is NULL" OR "City contains Budapest"), evaluated left-to-right. Older single-condition rules keep working unchanged. Also fixes a bug where a condition targeting a specific column could colour the whole row instead of just that column's cell in "Matching Cell Only" mode. See [full changelog](WHATSNEW.md) for older versions.
+- **SqlPulse is now permanently free — every feature, no licence key, no activation.** Advanced grid filtering, uncapped XLSX export, unlimited query history with configurable retention, the SQLite and SQL Server history backends and history encryption are available to everyone.
+- **Please update if you are on 0.1.304 or older.** The old free period was time-limited in code and expires on **2026-09-01**, silently reducing those same features on that date. Updating removes the deadline. See [full changelog](WHATSNEW.md) for older versions.
 
 ## Features
 
-### Free
 
 | Feature | Description |
 |---------|-------------|
@@ -54,7 +54,6 @@
 *SQL Profiler — blocking tree view (blocker → blocked session hierarchy)*
 ![SQL Profiler Blocking Tree](docspict/Profiler_BlockingTree.png)
 
-### Pro
 
 | Feature | Description |
 |---------|-------------|
@@ -163,10 +162,10 @@ The settings dialog has a **built-in search box** at the top of the navigation p
 | Search connections | Open Quick Connect — type in the search box at the top |
 | Save active connection | Open Quick Connect → click **Save current** → type a label → Enter |
 | Bulk import connections | **Settings → Connections → Import CSV...** |
-| Add new connection | **Settings → Connections → Add** or **Profiler → +** button (Free); **Quick Connect → + Add** (Pro) |
+| Add new connection | **Settings → Connections → Add**, the **Profiler → +** button, or **Quick Connect → + Add** |
 | Keyboard Shortcuts | **Tools** > **SqlPulse** > **Settings** > **Keyboard Shortcuts** |
 | Connection Strip | Automatic — configure in **Settings → Connections** |
-| Grid Conditional Formatting | **Settings** > **Grid Formatting (Pro)** — add rules (or enable Zebra Rows), then run a query |
+| Grid Conditional Formatting | **Settings** > **Grid Formatting** — add rules (or enable Zebra Rows), then run a query |
 | Transaction Guard | **Settings** > **Transaction Guard** — enable and set check interval |
 | Open Settings | **Tools** > **SqlPulse** > **Settings** |
 
@@ -310,12 +309,12 @@ Manage connections via **Tools → SqlPulse → Settings → Connections**.
 
 ### Adding a new connection
 
-| From | How | Tier |
-|------|-----|------|
-| **Settings** | **Tools → SqlPulse → Settings → Connections → Add** | Free + Pro |
-| **SQL Profiler toolbar** | Click the **+** button next to the server dropdown | Free + Pro |
-| **Quick Connect popup** | Click **+ Add** in the popup header | Pro only |
-| **Quick Connect: Save current** | Click **Save current** in the popup header, type a label, press Enter | Pro only |
+| From | How |
+|------|-----|
+| **Settings** | **Tools → SqlPulse → Settings → Connections → Add** |
+| **SQL Profiler toolbar** | Click the **+** button next to the server dropdown |
+| **Quick Connect popup** | Click **+ Add** in the popup header |
+| **Quick Connect: Save current** | Click **Save current** in the popup header, type a label, press Enter |
 
 All entry points open the Connections settings page with a new connection ready to fill in.
 
@@ -446,7 +445,7 @@ SQL Auth passwords are stored exclusively in the Windows Credential Manager unde
 |---------|----------|
 | **JSON** (default) | Local file, optional AES-256 encryption, portable |
 | **SQLite** | Local database, fast queries, good for large history |
-| **SQL Server** (Pro) | Shared team history via central table |
+| **SQL Server** | Shared team history via central table |
 
 ## Compatibility
 
@@ -461,9 +460,15 @@ SQL Auth passwords are stored exclusively in the Windows Credential Manager unde
 
 ## Licensing
 
-SqlPulse has a **Free** tier with core features and a **Pro** tier with the full suite. Pro activation requires a one-time internet connection; after that, it works entirely offline.
+SqlPulse is **free** - every feature, for personal and commercial use alike. There is no paid tier, no
+licence key and no activation step, and that is not going to change for the features shipped today.
 
-Activate via: **Tools** > **SqlPulse** > **Activate License**
+The extension makes **no network calls**: nothing is sent anywhere, there is no account and no
+telemetry, and it works fully offline. Your settings and query history stay on your machine.
+
+> Earlier builds (0.1.298 and older) shipped a Free/Pro split whose free period was time-limited in
+> code and would have expired on **2026-09-01**, silently reducing grid filtering, XLSX export and
+> history retention. That tier is gone as of 0.1.299 - **please update if you are on an older build.**
 
 ## Troubleshooting
 
@@ -486,7 +491,7 @@ Activate via: **Tools** > **SqlPulse** > **Activate License**
 
 ## Security & Privacy
 
-- [Security policy & activation source code](SECURITY.md) — what data leaves your machine, full source of the license system
+- [Security policy](SECURITY.md) — what data leaves your machine (nothing)
 - [Privacy policy](PRIVACY.md) — what is stored locally and what (if anything) is transmitted
 
 ## Support
