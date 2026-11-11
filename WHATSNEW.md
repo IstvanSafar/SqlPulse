@@ -1,5 +1,25 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.312 - 2026-11-11**
+
+---
+
+### Added
+- **Server load in the connection watermark**: `{cpu}` (SQL Server process CPU %) and `{blocked}`
+  (number of blocked requests) placeholders, behind the opt-in switch "Show server load". Read every
+  30 seconds per server over a separate short connection ("SqlPulse monitor") - your query window's
+  session is never used. Needs VIEW SERVER STATE; without it the values stay empty and their lines are
+  hidden. `{blocked}` only appears while something is blocked. Switched off (default), nothing is sent
+  to the server.
+- The default watermark template now includes `CPU {cpu}` and `Blocked: {blocked}`. Saved templates
+  are not changed - add the lines yourself to use them.
+
+### Fixed
+- Watermark text taller than the editor cut off its last lines; it now shrinks to fit (the font size
+  is the maximum).
+
+---
+
 **v0.1.311 - 2026-11-11**
 
 ---

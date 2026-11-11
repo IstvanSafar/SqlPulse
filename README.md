@@ -8,9 +8,11 @@
 
 **SqlPulse** is a productivity extension for SQL Server Management Studio that adds query history, result grid filtering, SQL code analysis, execution plan comparison, live SQL profiling, workspace management, and safety features to SSMS.
 
-### What's New — v0.1.311 (2026-11-11)
+### What's New — v0.1.312 (2026-11-11)
 
-- **New: Connection watermark** — every query editor shows its own connection as large faded text behind the code: server, database, alias, login, and the SQL Server version (e.g. *SQL Server 2025*). Colored with the connection color, follows *Change Connection* instantly, and stays empty for editors without a connection. See [Connection watermark](#connection-watermark).
+- **New: server load in the watermark** — `{cpu}` shows SQL Server CPU and `{blocked}` the number of blocked requests (only while something is blocked). Opt-in switch, read every 30 seconds over a separate connection; needs `VIEW SERVER STATE`. See [Server load](#server-load-cpu-and-blocked).
+- **Fix:** watermark text that is taller than the editor now shrinks to fit instead of cutting off the last lines.
+- **Connection watermark** (v0.1.311) — every query editor shows its own connection as large faded text behind the code: server, database, alias, login, and the SQL Server version (e.g. *SQL Server 2025*). Colored with the connection color, follows *Change Connection* instantly, and stays empty for editors without a connection. See [Connection watermark](#connection-watermark).
 - **Update required for SSMS 22.12** (since v0.1.310). The extension installer that ships with SSMS 22.12 rejects older SqlPulse packages (install fails with exit code 1012, *"version Invalid is not vsixV1, vsixV2, or vsixV3"*). If you use SSMS 22.12 or newer, please install the latest version.
 - **Editor Background** (v0.1.310) — show your own image behind the text of every query editor. See [Editor Background](#editor-background).
 - See [full changelog](WHATSNEW.md) for older versions.
@@ -30,7 +32,7 @@
 | **Important DB Alert** | Configure server/database patterns (wildcards supported). A colored floating banner appears whenever you switch to a matching — typically production — database. |
 | **Connection Strip** | A thin colored bar at the bottom of every query editor showing the current server and database. Color is configurable per connection in **Settings → Connections**. Toggle and resize there as well. |
 | **Editor Background** | Show an image behind the text of every query editor. Pick a file, then set opacity, stretch mode, size, position and margin in **Settings → Editor Background**. Follows theme changes. |
-| **Connection Watermark** | Each query editor shows its connection — server, database, alias, login, SQL Server version — as large faded text behind the code, in the connection's color. Editors without a connection show nothing. Configure in **Settings → Editor Background**. |
+| **Connection Watermark** | Each query editor shows its connection — server, database, alias, login, SQL Server version — as large faded text behind the code, in the connection's color. Optionally also the server's CPU and blocked requests. Editors without a connection show nothing. Configure in **Settings → Editor Background**. |
 
 #### Visuals
 
@@ -166,12 +168,23 @@ Same page, **Connection watermark** section. Tick **Show connection info in quer
   | `{login}` | SQL login, or `DOMAIN\user` for Windows authentication |
   | `{version}` | `16.00.4135` |
   | `{product}` | `SQL Server 2022` |
+  | `{cpu}` | `23%` — needs the server load switch, see below |
+  | `{blocked}` | `3` — only while requests are blocked; needs the server load switch |
 
-  A line whose placeholders are all empty is left out (e.g. `{alias}` for a connection you never saved). The default is `{server}`, `{database}`, `{product}`.
+  A line whose placeholders are all empty is left out (e.g. `{alias}` for a connection you never saved). The default is `{server}`, `{database}`, `{product}`, `CPU {cpu}`, `Blocked: {blocked}`.
 - **Font size**, **Opacity**, **Horizontal / Vertical position** — default is 36 pt, 25 %, top-right corner.
 - **Color** — the connection's color from **Settings → Connections** (same as the Connection Strip), or black/white matching the theme.
 
-Editors **without a connection show nothing**. After *Change Connection* the watermark updates within a fraction of a second. It works on its own or together with a background image. The SQL Server version is read from the editor's already open connection — no extra query is sent to the server.
+Editors **without a connection show nothing**. After *Change Connection* the watermark updates within a fraction of a second. It works on its own or together with a background image. The SQL Server version is read from the editor's already open connection — no extra query is sent to the server. If the text is taller or wider than the editor, it shrinks to fit; the font size is the maximum.
+
+#### Server load ({cpu} and {blocked})
+
+Tick **Show server load: fill {cpu} and {blocked}** on the same page. This is the only part of the watermark that queries the server:
+
+- Every **30 seconds** per server, SqlPulse opens a short **separate** connection (visible on the server as *SqlPulse monitor*) and reads the SQL Server process CPU and the number of blocked requests. Your query window's own session is never used.
+- `{blocked}` only appears while something is actually blocked — a line like `Blocked: {blocked}` stays hidden while everything is fine.
+- Requires **`VIEW SERVER STATE`** on the login. Without it — or if the SQL login's password is not available to the extension — `{cpu}` and `{blocked}` simply stay empty.
+- Switched off (the default), nothing is sent to the server. Existing templates are not changed: add `CPU {cpu}` and `Blocked: {blocked}` yourself if you saved a template before v0.1.312.
 
 ![Connection Watermark Settings](docspict/EditorBackground_Watermark_Settings.png)
 
