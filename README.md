@@ -8,10 +8,11 @@
 
 **SqlPulse** is a productivity extension for SQL Server Management Studio that adds query history, result grid filtering, SQL code analysis, execution plan comparison, live SQL profiling, workspace management, and safety features to SSMS.
 
-### What's New — v0.1.305 (2026-08-22)
+### What's New — v0.1.310 (2026-11-11)
 
-- **SqlPulse is now permanently free — every feature, no licence key, no activation.** Advanced grid filtering, uncapped XLSX export, unlimited query history with configurable retention, the SQLite and SQL Server history backends and history encryption are available to everyone.
-- **Please update if you are on 0.1.304 or older.** The old free period was time-limited in code and expires on **2026-09-01**, silently reducing those same features on that date. Updating removes the deadline. See [full changelog](WHATSNEW.md) for older versions.
+- **Update required for SSMS 22.12.** The extension installer that ships with SSMS 22.12 rejects older SqlPulse packages (install fails with exit code 1012, *"version Invalid is not vsixV1, vsixV2, or vsixV3"*). If you use SSMS 22.12 or newer, please install v0.1.310 — older builds can no longer be installed or updated there.
+- **New: Editor Background** — show your own image behind the text of every query editor, with adjustable opacity, size and position. No separate extension needed. See [Editor Background](#editor-background).
+- See [full changelog](WHATSNEW.md) for older versions.
 
 ## Features
 
@@ -27,6 +28,7 @@
 | **Transaction Guard** | Floating reminder when an open transaction is detected on the active query window. Auto-dismisses on commit or rollback. Enable and configure the check interval (1–60 s) via **Settings → Transaction Guard**. Requires `VIEW SERVER STATE` on the SQL Server login. |
 | **Important DB Alert** | Configure server/database patterns (wildcards supported). A colored floating banner appears whenever you switch to a matching — typically production — database. |
 | **Connection Strip** | A thin colored bar at the bottom of every query editor showing the current server and database. Color is configurable per connection in **Settings → Connections**. Toggle and resize there as well. |
+| **Editor Background** | Show an image behind the text of every query editor. Pick a file, then set opacity, stretch mode, size, position and margin in **Settings → Editor Background**. Follows theme changes. |
 
 #### Visuals
 
@@ -44,6 +46,9 @@
 
 *Connection Strip — colored bar at the bottom of the query editor*
 ![Connection Strip](docspict/ConnectionStrip_Editor.png)
+
+*Editor Background — your own image behind the query text*
+![Editor Background in the query editor](docspict/EditorBackground_Editor.webp)
 
 *SQL Profiler — live XE-based query capture with blocking tree and wait stats*
 ![SQL Profiler Window](docspict/Profiler_Window.png)
@@ -127,6 +132,20 @@ The settings dialog has a **built-in search box** at the top of the navigation p
 ![Advanced Settings](docspict/Settings_Advanced.png)
 
 ![Transaction Guard Settings](docspict/Settings_TransactionGuard.png)
+
+### Editor Background
+
+**Tools → SqlPulse → Settings... → Grid & Display → Editor Background** (or type `background` in the settings search box).
+
+1. Click **Browse...** and pick an image (PNG, JPG, BMP or GIF). The feature switches on automatically; a preview and the image size appear below.
+2. **Opacity** — 5–100 %, default 20 %. Keep it low so the code stays readable.
+3. **Stretch** — *Uniform* fits the image into a box, *None* keeps its natural size (never larger than the box), *UniformToFill* covers the whole editor keeping the aspect ratio, *Fill* stretches it to the editor.
+4. **Size** — how much of the editor the box may take (used by *None* and *Uniform*).
+5. **Horizontal / Vertical position** and **Margin** — default is the bottom-right corner with a 16 px margin.
+
+Click **OK**: every open query editor updates immediately, no restart needed. PNG files with transparency look good in both light and dark themes. Animated GIFs show their first frame.
+
+![Editor Background Settings](docspict/EditorBackground_Settings.png)
 
 ## Installation
 
@@ -454,7 +473,7 @@ SQL Auth passwords are stored exclusively in the Windows Credential Manager unde
 | SSMS 18.x | Supported |
 | SSMS 19.x | Supported |
 | SSMS 20.x | Supported |
-| SSMS 22.x | Supported |
+| SSMS 22.x | Supported (SSMS 22.12 and newer: SqlPulse v0.1.310 or newer required) |
 
 **Requirements:** Windows 10 or later, .NET Framework 4.8 (included with SSMS).
 
@@ -471,6 +490,9 @@ telemetry, and it works fully offline. Your settings and query history stay on y
 > history retention. That tier is gone as of 0.1.299 - **please update if you are on an older build.**
 
 ## Troubleshooting
+
+**Install fails with exit code 1012 ("version Invalid is not vsixV1, vsixV2, or vsixV3")**
+- You are on SSMS 22.12 or newer with a SqlPulse installer older than v0.1.310. Download the latest installer from [Releases](https://github.com/IstvanSafar/SqlPulse/releases).
 
 **Extension doesn't load after install**
 - Restart SSMS completely (close all instances)

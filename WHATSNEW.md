@@ -1,5 +1,25 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.310 - 2026-11-11**
+
+---
+
+### Fixed
+- **Update required for SSMS 22.12.** The extension installer shipped with SSMS 22.12 rejects older
+  SqlPulse packages: the install fails with exit code 1012 and *"version Invalid is not vsixV1, vsixV2,
+  or vsixV3"*. v0.1.310 installs again on SSMS 22.12 and stays compatible with SSMS 18-22. If you are
+  on SSMS 22.12 or newer, older SqlPulse installers can no longer install or update the extension -
+  please use this one.
+
+### Added
+- **Editor Background** (Settings -> Grid & Display -> Editor Background): show an image behind the
+  text of every query editor - no separate extension needed. Pick a file (PNG with transparency works
+  best in light and dark themes), then set opacity, stretch mode (None, Uniform, UniformToFill, Fill),
+  size, position and margin. Applies to all open editors immediately and follows theme changes.
+  Static images only; animated GIFs show their first frame.
+
+---
+
 **v0.1.305 - 2026-08-22**
 
 ---
