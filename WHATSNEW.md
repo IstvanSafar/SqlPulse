@@ -1,5 +1,21 @@
 ﻿# What's New in SqlPulse
 
+**v0.1.311 - 2026-11-11**
+
+---
+
+### Added
+- **Connection watermark** (Settings -> Editor Background -> Connection watermark): every query editor
+  shows its own connection as large faded text behind the code - server, database, alias, login, SQL
+  Server version (`{version}`, e.g. 16.00.4135) and product name (`{product}`, e.g. "SQL Server 2022").
+  The text is a template (one item per line; lines with only empty values are left out), with
+  adjustable font size, opacity and position, colored with the connection color from Settings ->
+  Connections. Editors without a connection show nothing. Follows "Change Connection" within a fraction
+  of a second, and works with or without a background image. The version is read from the editor's
+  already open connection - no extra query is sent to the server.
+
+---
+
 **v0.1.310 - 2026-11-11**
 
 ---

@@ -8,10 +8,11 @@
 
 **SqlPulse** is a productivity extension for SQL Server Management Studio that adds query history, result grid filtering, SQL code analysis, execution plan comparison, live SQL profiling, workspace management, and safety features to SSMS.
 
-### What's New — v0.1.310 (2026-11-11)
+### What's New — v0.1.311 (2026-11-11)
 
-- **Update required for SSMS 22.12.** The extension installer that ships with SSMS 22.12 rejects older SqlPulse packages (install fails with exit code 1012, *"version Invalid is not vsixV1, vsixV2, or vsixV3"*). If you use SSMS 22.12 or newer, please install v0.1.310 — older builds can no longer be installed or updated there.
-- **New: Editor Background** — show your own image behind the text of every query editor, with adjustable opacity, size and position. No separate extension needed. See [Editor Background](#editor-background).
+- **New: Connection watermark** — every query editor shows its own connection as large faded text behind the code: server, database, alias, login, and the SQL Server version (e.g. *SQL Server 2025*). Colored with the connection color, follows *Change Connection* instantly, and stays empty for editors without a connection. See [Connection watermark](#connection-watermark).
+- **Update required for SSMS 22.12** (since v0.1.310). The extension installer that ships with SSMS 22.12 rejects older SqlPulse packages (install fails with exit code 1012, *"version Invalid is not vsixV1, vsixV2, or vsixV3"*). If you use SSMS 22.12 or newer, please install the latest version.
+- **Editor Background** (v0.1.310) — show your own image behind the text of every query editor. See [Editor Background](#editor-background).
 - See [full changelog](WHATSNEW.md) for older versions.
 
 ## Features
@@ -29,6 +30,7 @@
 | **Important DB Alert** | Configure server/database patterns (wildcards supported). A colored floating banner appears whenever you switch to a matching — typically production — database. |
 | **Connection Strip** | A thin colored bar at the bottom of every query editor showing the current server and database. Color is configurable per connection in **Settings → Connections**. Toggle and resize there as well. |
 | **Editor Background** | Show an image behind the text of every query editor. Pick a file, then set opacity, stretch mode, size, position and margin in **Settings → Editor Background**. Follows theme changes. |
+| **Connection Watermark** | Each query editor shows its connection — server, database, alias, login, SQL Server version — as large faded text behind the code, in the connection's color. Editors without a connection show nothing. Configure in **Settings → Editor Background**. |
 
 #### Visuals
 
@@ -49,6 +51,9 @@
 
 *Editor Background — your own image behind the query text*
 ![Editor Background in the query editor](docspict/EditorBackground_Editor.webp)
+
+*Connection Watermark — server, database and SQL Server version behind the code, in the connection color*
+![Connection Watermark in the query editor](docspict/EditorBackground_Watermark_Editor.webp)
 
 *SQL Profiler — live XE-based query capture with blocking tree and wait stats*
 ![SQL Profiler Window](docspict/Profiler_Window.png)
@@ -146,6 +151,29 @@ The settings dialog has a **built-in search box** at the top of the navigation p
 Click **OK**: every open query editor updates immediately, no restart needed. PNG files with transparency look good in both light and dark themes. Animated GIFs show their first frame.
 
 ![Editor Background Settings](docspict/EditorBackground_Settings.png)
+
+### Connection watermark
+
+Same page, **Connection watermark** section. Tick **Show connection info in query editors** and click **OK**.
+
+- **Text** — one item per line. Placeholders:
+
+  | Placeholder | Example |
+  |-------------|---------|
+  | `{server}` | `PRODSQL01` |
+  | `{database}` | `Sales` |
+  | `{alias}` | the name you gave the connection in **Settings → Connections** |
+  | `{login}` | SQL login, or `DOMAIN\user` for Windows authentication |
+  | `{version}` | `16.00.4135` |
+  | `{product}` | `SQL Server 2022` |
+
+  A line whose placeholders are all empty is left out (e.g. `{alias}` for a connection you never saved). The default is `{server}`, `{database}`, `{product}`.
+- **Font size**, **Opacity**, **Horizontal / Vertical position** — default is 36 pt, 25 %, top-right corner.
+- **Color** — the connection's color from **Settings → Connections** (same as the Connection Strip), or black/white matching the theme.
+
+Editors **without a connection show nothing**. After *Change Connection* the watermark updates within a fraction of a second. It works on its own or together with a background image. The SQL Server version is read from the editor's already open connection — no extra query is sent to the server.
+
+![Connection Watermark Settings](docspict/EditorBackground_Watermark_Settings.png)
 
 ## Installation
 
