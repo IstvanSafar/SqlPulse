@@ -186,6 +186,9 @@ Tick **Show server load: fill {cpu} and {blocked}** on the same page. This is th
 - Requires **`VIEW SERVER STATE`** on the login. Without it — or if the SQL login's password is not available to the extension — `{cpu}` and `{blocked}` simply stay empty.
 - Switched off (the default), nothing is sent to the server. Existing templates are not changed: add `CPU {cpu}` and `Blocked: {blocked}` yourself if you saved a template before v0.1.312.
 
+*Server load switch with the CPU line in the watermark*
+![Server load in the Connection Watermark](docspict/EditorBackground_ServerLoad.png)
+
 ![Connection Watermark Settings](docspict/EditorBackground_Watermark_Settings.png)
 
 ## Installation
